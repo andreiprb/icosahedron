@@ -18,7 +18,6 @@ let poleLimit = 85
 let xRotation = 0
 let yRotation = 0
 let isDragging = false
-let showAlert = true
 
 renderShape()
 renderColor(currentColor)
@@ -45,7 +44,6 @@ function renderShape () {
 }
 
 function renderColor (color) {
-    if (showAlert) {
         if (color == "random") {
             for (i=1; i<=20; i++) {
                 document.getElementById(`face${i}`).style.borderBottomColor = `rgb(${Math.floor((Math.random() * 255) + 1)}, ${Math.floor((Math.random() * 255) + 1)}, ${Math.floor((Math.random() * 255) + 1)})`
@@ -71,7 +69,6 @@ function renderColor (color) {
                 document.getElementById(`face${i}`).style.opacity = opacity - (i+count)%5/10
             }
         }
-    }
     if (currentColor != color) currentColor = color
 }
 
@@ -84,18 +81,13 @@ function renderShadow (xRotation) {
 function initializeControls () {
     document.getElementsByClassName("menu")[0].addEventListener("mouseover", () => isDragging = true)
     document.getElementsByClassName("menu")[0].addEventListener("mouseout", () => isDragging = false)
-    document.getElementsByTagName("body")[0].addEventListener("click", infoAlert = () => {if (!showAlert) initializeInfoAlert()})
-    document.addEventListener("keydown", (event) => {if (event.key === "Escape") initializeInfoAlert()})
     document.addEventListener("mouseup", () => {
         noActivity()
-        if (showAlert) {
-            document.removeEventListener("mousemove", dragLoop)
-            document.getElementsByTagName("html")[0].style.cursor = `grab`
-            document.getElementsByTagName("body")[0].style.cursor = `grab`
-            document.getElementsByClassName("menu")[0].style.cursor = `pointer`
-            isDragging = !isDragging
-        }
-        if (isDragging) isDragging = !isDragging
+        document.removeEventListener("mousemove", dragLoop)
+        document.getElementsByTagName("html")[0].style.cursor = `grab`
+        document.getElementsByTagName("body")[0].style.cursor = `grab`
+        document.getElementsByClassName("menu")[0].style.cursor = `pointer`
+        isDragging = !isDragging
     })
     document.addEventListener("mousedown", (event) => {
         if (event.button == 0 && !isDragging && showAlert) {
@@ -136,17 +128,6 @@ function initializeMenu () {
         document.getElementsByClassName("menu")[0].getElementsByTagName("button")[i].style.backgroundColor = document.getElementsByClassName("menu")[0].getElementsByTagName("button")[i].className
     }
 }
-
-function initializeInfoAlert () {
-    if (showAlert) {
-        document.getElementsByTagName("html")[0].style.cursor = `pointer`
-        document.getElementsByTagName("body")[0].style.cursor = `pointer`
-        document.getElementsByClassName("infoAlert")[0].style.opacity = 1
-        document.getElementsByClassName("infoAlert")[0].style.transform = `translateY(0)`
-    } else {
-        document.getElementsByTagName("html")[0].style.cursor = `grab`
-        document.getElementsByTagName("body")[0].style.cursor = `grab`
-        document.getElementsByClassName("infoAlert")[0].style.opacity = 0
         document.getElementsByClassName("infoAlert")[0].style.transform = `translateY(15%)`
     }
     showAlert = !showAlert

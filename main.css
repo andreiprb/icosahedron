@@ -102,24 +102,6 @@ body {
         rgba(255, 0, 0, 1) 100%);
 }
 
-.infoAlert {
-        width: 60%;
-        height: 60%;
-        background-color: rgba(250, 250, 250, .8);
-        border: 1px solid rgb(200, 200, 200);
-        border-radius: 10px;
-        z-index: 2;
-        user-select: none;
-        -moz-user-select: none;
-        -khtml-user-select: none;
-        -webkit-user-select: none;
-        -o-user-select: none;
-        cursor: inherit;
-        opacity: 0;
-        transition-duration: .4s;
-        transform: translateY(15%);
-}
-
 p {
         margin-left: 50px;
         margin-right: 50px;

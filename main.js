@@ -90,7 +90,7 @@ function initializeControls () {
         isDragging = !isDragging
     })
     document.addEventListener("mousedown", (event) => {
-        if (event.button == 0 && !isDragging && showAlert) {
+        if (event.button == 0 && !isDragging) {
             isDragging = !isDragging
             document.getElementsByTagName("html")[0].style.cursor = `grabbing`
             document.getElementsByTagName("body")[0].style.cursor = `grabbing`

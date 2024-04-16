@@ -122,13 +122,3 @@ function noActivity() {
         }, 1000);
     }, 5000)
 }
-
-function initializeMenu () {
-    for (i=1; i<11; i++) {
-        document.getElementsByClassName("menu")[0].getElementsByTagName("button")[i].style.backgroundColor = document.getElementsByClassName("menu")[0].getElementsByTagName("button")[i].className
-    }
-}
-        document.getElementsByClassName("infoAlert")[0].style.transform = `translateY(15%)`
-    }
-    showAlert = !showAlert
-}

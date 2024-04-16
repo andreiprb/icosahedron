@@ -115,6 +115,12 @@ function initializeControls () {
     })
 }
 
+function initializeMenu () {
+    for (i=1; i<11; i++) {
+        document.getElementsByClassName("menu")[0].getElementsByTagName("button")[i].style.backgroundColor = document.getElementsByClassName("menu")[0].getElementsByTagName("button")[i].className
+    }
+}
+
 function noActivity() {
     timeout = setTimeout(() => {
         interval = setInterval(() => {
